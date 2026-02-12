@@ -10,7 +10,8 @@ body {
 
 body {
   color: #b1b0b0;
-  background-color: #0c0c0d;
+  /* background-color: #0c0c0d; */
+  background-color: black;
 }
 
 body::-webkit-scrollbar {
