@@ -3,91 +3,84 @@
 
 import { useEffect, useRef } from "react";
 
+type Props = {
+  audioRef: React.RefObject<HTMLAudioElement>;
+  playing: boolean;
+  onPlayToggle: () => void;
+};
+
 export default function AudioVisualizer({
   audioRef,
   playing,
   onPlayToggle,
-}: {
-  audioRef: React.RefObject<HTMLAudioElement>;
-  playing: boolean;
-  onPlayToggle: () => void;
-}) {
+}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const analyserRef = useRef<AnalyserNode | null>(null);
-  const dataArrayRef = useRef<Uint8Array | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!audioRef.current) return;
 
-    const ctx = new (window.AudioContext ||
-      (window as any).webkitAudioContext)();
-    const src = ctx.createMediaElementSource(audioRef.current);
-    const analyserNode = ctx.createAnalyser();
-    src.connect(analyserNode);
-    analyserNode.connect(ctx.destination);
-    analyserNode.fftSize = 64;
+    const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
 
-    const bufferLength = analyserNode.frequencyBinCount;
+    const ctx = new AudioCtx();
+    const analyser = ctx.createAnalyser();
+    analyser.fftSize = 256;
 
-    // Fix за TypeScript
-    const dataArr = new Uint8Array(bufferLength) as unknown as Uint8Array;
-    dataArrayRef.current = dataArr;
+    const source = ctx.createMediaElementSource(audioRef.current);
+    source.connect(analyser);
+    analyser.connect(ctx.destination);
 
-    audioCtxRef.current = ctx;
-    analyserRef.current = analyserNode;
+    const buffer = new Uint8Array(analyser.fftSize);
 
-    // Synchronous cleanup
-    return () => {
-      void ctx.close();
-    };
-  }, [audioRef]);
-
-  useEffect(() => {
-    const analyser = analyserRef.current;
-    const dataArray = dataArrayRef.current;
     const canvas = canvasRef.current;
-    if (!analyser || !dataArray || !canvas) return;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let raf: number;
+    const c = canvas.getContext("2d");
+    if (!c) return;
 
     const render = () => {
-      raf = requestAnimationFrame(render);
-      analyser.getByteFrequencyData(dataArray);
+      analyser.getByteTimeDomainData(buffer);
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let sum = 0;
+      for (let i = 0; i < buffer.length; i++) {
+        const v = (buffer[i] - 128) / 128;
+        sum += v * v;
+      }
 
-      const barWidth = canvas.width / dataArray.length;
-      dataArray.forEach((value, i) => {
-        const barHeight = value / 2;
-        ctx.fillStyle = "#0ff";
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = "#0ff";
-        ctx.fillRect(
-          i * barWidth,
-          canvas.height - barHeight,
-          barWidth - 2,
-          barHeight
-        );
-      });
+      const volume = Math.sqrt(sum / buffer.length);
+
+      c.clearRect(0, 0, canvas.width, canvas.height);
+
+      const radius = 10 + volume * 40;
+
+      c.beginPath();
+      c.arc(canvas.width / 2, canvas.height / 2, radius, 0, Math.PI * 2);
+      c.fillStyle = "#0ff";
+      c.shadowBlur = 20;
+      c.shadowColor = "#0ff";
+      c.fill();
+
+      rafRef.current = requestAnimationFrame(render);
     };
 
-    if (playing) render();
+    if (playing) {
+      ctx.resume();
+      render();
+    }
 
-    return () => cancelAnimationFrame(raf);
-  }, [playing]);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      ctx.close();
+    };
+  }, [playing, audioRef]);
 
   return (
     <canvas
       ref={canvasRef}
       width={120}
-      height={50}
+      height={120}
       className="absolute top-4 right-4 cursor-pointer"
-      onClick={() => onPlayToggle()}
+      onClick={onPlayToggle}
     />
   );
 }
