@@ -60,18 +60,18 @@ export default function Canv() {
             <Ring />
             <Podium />
             <PodiumRing />
-            <PresentationControls
+            {/* <PresentationControls
               global
               rotation={[0.13, 0.1, 0]}
               polar={[-0.4, 0.2]}
               azimuth={[-1, 0.75]}
               config={{ mass: 2, tension: 400 }}
               snap
-            >
-              {/* <Float rotationIntensity={0.2}> */}
-              <Model mouse={mouse} />
-              {/* </Float> */}
-            </PresentationControls>
+            > */}
+            {/* <Float rotationIntensity={0.2}> */}
+            <Model mouse={mouse} />
+            {/* </Float> */}
+            {/* </PresentationControls> */}
           </group>
 
           <group position={[1.5, 0, 0]}>
@@ -108,45 +108,37 @@ function Model({ mouse }: any) {
   const groupRef = useRef<THREE.Group>(null);
   const { scene } = useGLTF("/elum.glb");
 
-  // target rotation
-  const target = useRef({ y: 0 });
-  const current = useRef({ y: 0 });
+  // rotation state
+  const target = useRef(0);
+  const current = useRef(0);
+  const lastMouse = useRef(0);
 
-  // за плавно флоатване нагоре/надолу
-  const floatOffset = useRef(0);
-  const floatDirection = useRef(1); // 1 = нагоре, -1 = надолу
+  const baseY = 0.4;
 
-  // последна позиция на мишката за изчисляване на скорост
-  const lastMouse = useRef({ x: 0 });
-
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (!groupRef.current) return;
 
-    // изчисляваме скорост на мишката по X
-    const dx = mouse.current.x - lastMouse.current.x;
-    lastMouse.current.x = mouse.current.x;
+    const time = state.clock.elapsedTime;
 
-    // target rotation само по Y
-    target.current.y += dx * 1.5; // сила по Y
+    // ===== Mouse velocity rotation =====
+    const dx = mouse.current.x - lastMouse.current;
+    lastMouse.current = mouse.current.x;
 
-    // плавно приближаваме текущата rotation към target
-    current.current.y += (target.current.y - current.current.y) * 0.08;
+    target.current += dx * 1.5;
 
-    // бавно връщаме target към центъра (0)
-    target.current.y *= 0.95;
+    current.current += (target.current - current.current) * 0.08;
 
-    // леко флоатване нагоре/надолу в покой
-    floatOffset.current += floatDirection.current * delta * 0.05;
-    if (floatOffset.current > 0.1) floatDirection.current = -1;
-    if (floatOffset.current < -0.1) floatDirection.current = 1;
+    // плавно връщане към центъра
+    target.current *= 0.95;
 
-    // прилагаме rotation и позиция
-    groupRef.current.rotation.y = current.current.y;
-    groupRef.current.position.y = 0.4 + floatOffset.current; // оригиналната Y позиция + float
+    groupRef.current.rotation.y = current.current;
+
+    // ===== Stable floating (no drift) =====
+    groupRef.current.position.y = baseY + Math.sin(time * 1.2) * 0.08;
   });
 
   return (
-    <group ref={groupRef} position={[-0.5, 0.4, 0.8]} scale={32}>
+    <group ref={groupRef} position={[-0.5, baseY, 0.8]} scale={32}>
       {scene.children.map((child: any, i: number) =>
         child.isMesh ? (
           <mesh key={i} geometry={child.geometry} castShadow>
@@ -185,7 +177,8 @@ function Ring() {
 function Podium() {
   const hdr = useLoader(RGBELoader, "/metal.hdr");
 
-  hdr.mapping = THREE.EquirectangularReflectionMapping;
+  const envMap = hdr.clone();
+  envMap.mapping = THREE.EquirectangularReflectionMapping;
 
   return (
     <mesh
