@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function AudioVisualizer({
   audioRef,
@@ -12,11 +13,11 @@ export default function AudioVisualizer({
   onPlayToggle: () => void;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
-  const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
-  const [dataArray, setDataArray] = useState<Uint8Array | null>(null);
 
-  // Създаваме AudioContext само при click
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const dataArrayRef = useRef<Uint8Array | null>(null);
+
   useEffect(() => {
     if (!audioRef.current) return;
 
@@ -26,21 +27,29 @@ export default function AudioVisualizer({
     const analyserNode = ctx.createAnalyser();
     src.connect(analyserNode);
     analyserNode.connect(ctx.destination);
-    analyserNode.fftSize = 64; // повече барчета
+    analyserNode.fftSize = 64;
+
     const bufferLength = analyserNode.frequencyBinCount;
-    const dataArr = new Uint8Array(bufferLength);
 
-    setAudioContext(ctx);
-    setAnalyser(analyserNode);
-    setDataArray(dataArr);
+    // Fix за TypeScript
+    const dataArr = new Uint8Array(bufferLength) as unknown as Uint8Array;
+    dataArrayRef.current = dataArr;
 
-    return () => ctx.close();
+    audioCtxRef.current = ctx;
+    analyserRef.current = analyserNode;
+
+    // Synchronous cleanup
+    return () => {
+      void ctx.close();
+    };
   }, [audioRef]);
 
   useEffect(() => {
-    if (!analyser || !dataArray || !canvasRef.current) return;
-
+    const analyser = analyserRef.current;
+    const dataArray = dataArrayRef.current;
     const canvas = canvasRef.current;
+    if (!analyser || !dataArray || !canvas) return;
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -55,7 +64,7 @@ export default function AudioVisualizer({
       const barWidth = canvas.width / dataArray.length;
       dataArray.forEach((value, i) => {
         const barHeight = value / 2;
-        ctx.fillStyle = "#0ff"; // неоново синьо
+        ctx.fillStyle = "#0ff";
         ctx.shadowBlur = 10;
         ctx.shadowColor = "#0ff";
         ctx.fillRect(
@@ -67,10 +76,10 @@ export default function AudioVisualizer({
       });
     };
 
-    if (playing) render(); // пуска анимацията само когато playing=true
+    if (playing) render();
 
     return () => cancelAnimationFrame(raf);
-  }, [analyser, dataArray, playing]);
+  }, [playing]);
 
   return (
     <canvas
@@ -78,10 +87,7 @@ export default function AudioVisualizer({
       width={120}
       height={50}
       className="absolute top-4 right-4 cursor-pointer"
-      onClick={() => {
-        if (!audioRef.current) return;
-        onPlayToggle();
-      }}
+      onClick={() => onPlayToggle()}
     />
   );
 }
