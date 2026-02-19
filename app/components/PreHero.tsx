@@ -1,5 +1,11 @@
+"use client";
+
 import Sticky from "./Sticky";
 
-export default function PreHero() {
-  return <Sticky />;
+interface PreHeroProps {
+  onComplete?: () => void;
+}
+
+export default function PreHero({ onComplete }: PreHeroProps) {
+  return <Sticky onComplete={onComplete} />;
 }
