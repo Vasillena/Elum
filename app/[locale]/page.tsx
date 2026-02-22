@@ -1,6 +1,7 @@
 "use client";
 
 import Canv from "../components/Canvas";
+import Loading from "./loading";
 import Player from "../components/Player";
 import PreHero from "../components/PreHero";
 import { SwitchLanguage } from "../components/SwitchLanguage";
@@ -11,10 +12,8 @@ export default function Home() {
 
   return (
     <>
-      {/* PreHero винаги се показва, и вика handle, когато приключи */}
       <PreHero onComplete={() => setShowCanvas(true)} />
 
-      {/* Canvas fade-in зад PreHero */}
       <div
         className={`fixed inset-0 transition-opacity duration-1000 ${
           showCanvas ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -23,9 +22,10 @@ export default function Home() {
       >
         <Canv />
       </div>
-
-      <Player />
-      <SwitchLanguage />
+      <div className="fixed bottom-4 -right-8 lg:right-0 flex flex-col gap-14">
+        <Player />
+        <SwitchLanguage />
+      </div>
     </>
   );
 }

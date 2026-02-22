@@ -64,7 +64,7 @@ export default function PlayerWithBars() {
       {/* SOUND + ON/OFF scroll + bar charts */}
       <div
         onClick={togglePlay}
-        className="fixed bottom-26 right-0 cursor-pointer select-none text-white font-bold text-sm flex items-center gap-2 -rotate-90"
+        className="cursor-pointer select-none text-white font-bold text-sm flex items-center gap-2 -rotate-90"
       >
         <span>SOUND</span>
 

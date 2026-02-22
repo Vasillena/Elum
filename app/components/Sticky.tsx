@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,7 +21,7 @@ export default function Sticky({ onComplete }: StickyProps) {
   const blocksRef = useRef<HTMLDivElement[]>([]);
 
   const blocks = [
-    { type: "ring" }, // 👈 нов първи елемент
+    { type: "ring" },
     { text: t("hero.text-1") },
     { text: t("hero.text-2") },
     { text: t("hero.text-3") },
@@ -76,14 +76,9 @@ export default function Sticky({ onComplete }: StickyProps) {
   return (
     <section
       ref={sectionRef}
-      // onClick={() => {
-      //   if (!soundEnabled) enableSound();
-      // }}
       className="relative h-screen overflow-hidden px-4 md:px-40"
     >
       <div className="h-screen flex items-center justify-center relative">
-        {/* <div className="absolute w-[600px] h-[600px] rounded-full border border-white/10 blur-sm shadow-[0_0_60px_10px_rgba(255,255,255,0.06)]" /> */}
-
         {blocks.map((block, index) => (
           <div
             key={index}
@@ -109,12 +104,10 @@ export default function Sticky({ onComplete }: StickyProps) {
         rounded-full blur-3xl bg-white/10"
                 />
 
-                {/* Text inside */}
+                {/* Logo */}
                 <div className="absolute flex flex-col items-center gap-4 mt-12">
                   <Image src={logo} alt="Elum logo" width={72} height={303} />
-                  {/* <p className="text-sm md:text-lg uppercase tracking-[0.3em] text-white">
-                    Let&apos;s get started
-                  </p> */}
+
                   {/* Scroll dots */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="dot" />
@@ -126,7 +119,7 @@ export default function Sticky({ onComplete }: StickyProps) {
             ) : (
               <p
                 className="text-xl lg:text-4xl mt-6 text-white
-        [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff]"
+        [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse"
               >
                 {block.text}
               </p>
@@ -134,8 +127,6 @@ export default function Sticky({ onComplete }: StickyProps) {
           </div>
         ))}
       </div>
-      {/* <audio ref={audioRef} src="/Tension.mp3" preload="auto" />
-      {!soundEnabled && <CursorHint visible={!soundEnabled} />} */}
     </section>
   );
 }
