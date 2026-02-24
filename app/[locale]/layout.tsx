@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { GilroyLight } from "../utils/fonts";
 import Provider from "./provider";
+import TitleBarAnimation from "../components/TitleBarAnimation";
 import { setStaticParamsLocale } from "next-international/server";
 
 export async function generateMetadata({
@@ -88,7 +89,14 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${GilroyLight.className} antialiased`}>
-        <Provider locale={locale}>{children}</Provider>
+        <Provider locale={locale}>
+          <TitleBarAnimation
+            first="Elum"
+            second="Night Project"
+            displayTime={1600}
+          />
+          {children}
+        </Provider>
       </body>
     </html>
   );

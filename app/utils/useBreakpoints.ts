@@ -18,14 +18,14 @@ export function useBreakpoints() {
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
 
-    handleResize(); // задаваме реалната ширина веднага при mount
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const current = (): Breakpoint | "base" => {
-    if (!width) return "base"; // още не е известна ширината
+    if (!width) return "base";
     if (width >= breakpoints["2xl"]) return "2xl";
     if (width >= breakpoints.xl) return "xl";
     if (width >= breakpoints.lg) return "lg";
