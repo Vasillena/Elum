@@ -1,9 +1,9 @@
 export default {
   hero: {
-    "text-1": "The night",
-    "text-2": "is about",
-    "text-3": "to change",
-    "text-4": "its shape...",
-    "text-5": "Be there when it emerges.",
+    "text-1": "Нощта",
+    "text-2": "е на път",
+    "text-3": "да смени",
+    "text-4": "своя облик...",
+    "text-5": "Бъди там, когато се разкрие.",
   },
 } as const;

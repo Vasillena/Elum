@@ -1,7 +1,9 @@
+"use client";
+
 import * as THREE from "three";
 
 import { Billboard, Text } from "@react-three/drei";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo } from "react";
 
 import { SVGLoader } from "three/examples/jsm/Addons.js";
 import { useLoader } from "@react-three/fiber";
@@ -17,33 +19,20 @@ export default function CavasText() {
     );
   }, [data]);
 
+  useEffect(() => {
+    return () => {
+      meshes.forEach((geo) => geo.dispose());
+    };
+  }, [meshes]);
+
   if (!meshes.length) return null;
 
-  //   const groupRef = useRef<THREE.Group>(null);
-  //   const svgRef = useRef<THREE.Group>(null);
-
-  // Центрираме SVG-то спрямо групата
-  //   useEffect(() => {
-  //     if (!svgRef.current) return;
-
-  //     const box = new THREE.Box3().setFromObject(groupRef.current);
-  //     const center = box.getCenter(new THREE.Vector3());
-  //     groupRef.current.position.x -= center.x;
-  //     groupRef.current.position.y -= center.y;
-  //   }, [meshes]);
-
   return (
-    <Billboard>
+    <Billboard follow lockX lockZ>
       <group>
-        {/* SVG като mesh */}
-        <group
-          //   ref={svgRef}
-          scale={[0.0055, -0.0055, 0.0055]}
-          position={[0, 1, 0]}
-        >
+        <group scale={[0.0055, -0.0055, 0.0055]} position={[0, 1, 0]}>
           {meshes.map((geometry, i) => (
-            <mesh key={i} geometry={geometry}>
-              {/* Чисто бяло, без светене */}
+            <mesh key={i} geometry={geometry} frustumCulled={false}>
               <meshBasicMaterial color="white" toneMapped={false} />
             </mesh>
           ))}

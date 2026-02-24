@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 
-export default function PlayerWithBars() {
+export default function Player() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hintVisible, setHintVisible] = useState(true);
@@ -13,43 +13,36 @@ export default function PlayerWithBars() {
   const togglePlay = async () => {
     if (!audioRef.current) return;
 
-    try {
-      if (!isPlaying && audioRef.current.paused) {
-        await audioRef.current.play();
-      } else if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        await audioRef.current.play();
-      }
-
-      setIsPlaying(!isPlaying);
-    } catch (err) {
-      console.error("Audio playback error:", err);
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      await audioRef.current.play();
+      setIsPlaying(true);
     }
   };
 
-  // Първи клик за автоматично пускане
   useEffect(() => {
     const handleFirstClick = async () => {
       if (firstClickRef.current) return;
       firstClickRef.current = true;
 
-      if (audioRef.current) {
-        try {
-          audioRef.current.volume = 0;
-          await audioRef.current.play();
+      if (!audioRef.current) return;
 
-          gsap.to(audioRef.current, {
-            volume: 1,
-            duration: 2,
-            ease: "power2.out",
-          });
+      try {
+        audioRef.current.volume = 0;
+        await audioRef.current.play();
 
-          setIsPlaying(true);
-          setHintVisible(false);
-        } catch (err) {
-          console.error(err);
-        }
+        gsap.to(audioRef.current, {
+          volume: 1,
+          duration: 2,
+          ease: "power2.out",
+        });
+
+        setIsPlaying(true);
+        setHintVisible(false);
+      } catch (err) {
+        console.error(err);
       }
     };
 
@@ -61,32 +54,30 @@ export default function PlayerWithBars() {
     <>
       <audio ref={audioRef} src="/Tension.mp3" loop preload="auto" />
 
-      {/* SOUND + ON/OFF scroll + bar charts */}
       <div
         onClick={togglePlay}
         className="cursor-pointer select-none text-white font-bold text-sm flex items-center gap-2 -rotate-90"
       >
         <span>SOUND</span>
 
-        {/* ON/OFF bar container */}
-        <div className="flex flex-col justify-center h-4 mr-4 overflow-hidden">
+        {/* ON / OFF text slider */}
+        <div className="flex flex-col justify-center h-4 overflow-hidden">
           <div
             className="transition-transform duration-300 ease-in-out"
             style={{ transform: `translateY(${isPlaying ? "-25%" : "25%"})` }}
           >
-            <div className="text-orange-900">OFF</div>
-            <div className="text-green-900">ON</div>
+            <div className="text-red-500">OFF</div>
+            <div className="text-green-400">ON</div>
           </div>
         </div>
 
-        {/* Bar animation */}
-        <div className="flex flex-col gap-1 h-6 justify-end -rotate-90 mb-0.5">
-          {[...Array(5)].map((_, i) => (
+        {/* Bars */}
+        <div className="flex items-center gap-1">
+          {[0, 1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className={`w-1 rounded-sm bg-white transition-all duration-300 ${
-                isPlaying ? `animate-pulseBar animation-delay-${i}` : "h-2"
-              }`}
+              className={`bar ${isPlaying ? "animate" : ""}`}
+              style={{ animationDelay: `${i * 0.15}s` }}
             />
           ))}
         </div>
@@ -94,34 +85,25 @@ export default function PlayerWithBars() {
 
       {hintVisible && <CursorHint visible={hintVisible} />}
 
-      {/* Tailwind CSS animation */}
       <style jsx>{`
-        .animate-pulseBar {
-          animation: pulseBar 0.8s infinite ease-in-out;
-        }
-        .animation-delay-0 {
-          animation-delay: 0s;
-        }
-        .animation-delay-1 {
-          animation-delay: 0.1s;
-        }
-        .animation-delay-2 {
-          animation-delay: 0.2s;
-        }
-        .animation-delay-3 {
-          animation-delay: 0.3s;
-        }
-        .animation-delay-4 {
-          animation-delay: 0.4s;
+        .bar {
+          width: 2px;
+          height: 10px;
+          background: white;
+          transition: height 0.3s ease;
         }
 
-        @keyframes pulseBar {
+        .animate {
+          animation: bounce 0.8s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
           0%,
           100% {
-            height: 4px;
+            height: 6px;
           }
           50% {
-            height: 12px;
+            height: 10px;
           }
         }
       `}</style>
@@ -130,16 +112,23 @@ export default function PlayerWithBars() {
 }
 
 function CursorHint({ visible }: { visible: boolean }) {
-  const hintRef = useRef<HTMLDivElement>(null);
+  const desktopRef = useRef<HTMLDivElement>(null);
+  const mobileRef = useRef<HTMLDivElement>(null);
+
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 768px)").matches;
 
   useEffect(() => {
+    if (isMobile) return;
+
     const move = (e: MouseEvent) => {
-      if (!hintRef.current) return;
+      if (!desktopRef.current) return;
 
-      const width = hintRef.current.offsetWidth;
-      const height = hintRef.current.offsetHeight;
+      const width = desktopRef.current.offsetWidth;
+      const height = desktopRef.current.offsetHeight;
 
-      gsap.to(hintRef.current, {
+      gsap.to(desktopRef.current, {
         x: e.clientX - width / 2,
         y: e.clientY - height - 20,
         duration: 0.2,
@@ -149,26 +138,38 @@ function CursorHint({ visible }: { visible: boolean }) {
 
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
-    if (!hintRef.current) return;
+    const target = isMobile ? mobileRef.current : desktopRef.current;
+    if (!target) return;
 
-    gsap.to(hintRef.current, {
+    gsap.to(target, {
       autoAlpha: visible ? 1 : 0,
       duration: 0.4,
       ease: "power2.out",
     });
-  }, [visible]);
+  }, [visible, isMobile]);
 
   return (
-    <div
-      ref={hintRef}
-      className="fixed top-0 left-0 px-4 py-2 text-xs tracking-widest
-      text-white bg-black/70 backdrop-blur-md rounded-full
-      pointer-events-none select-none opacity-0"
-    >
-      click anywhere to enable sound
-    </div>
+    <>
+      <div
+        ref={desktopRef}
+        className="hidden md:block fixed top-0 left-0 px-4 py-2 text-xs tracking-widest
+        text-white bg-black/70 backdrop-blur-md rounded-full
+        pointer-events-none select-none opacity-0"
+      >
+        click anywhere to enable sound
+      </div>
+
+      <div
+        ref={mobileRef}
+        className="md:hidden fixed bottom-20 left-1/2 -translate-x-1/2 px-4 py-2 text-xs text-center tracking-widest whitespace-nowrap
+        text-white bg-black/70 backdrop-blur-md rounded-full
+        pointer-events-none select-none opacity-0"
+      >
+        click anywhere to enable sound
+      </div>
+    </>
   );
 }
