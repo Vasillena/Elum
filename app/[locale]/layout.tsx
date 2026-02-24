@@ -16,48 +16,42 @@ export async function generateMetadata({
   let title, description, keywords;
 
   if (locale === "bg") {
-    title = "Q кетъринг Пловдив | qcatering.bg";
+    title = "Elum Night Project | elum.bg";
     description =
-      "Премиум кетъринг с вкус и стил! Предлагаме гурме изкушения за сватби, събития, партита и корпоративни събирания.⁣⁣";
+      "Нощта е на път да смени своя облик... Бъди там, когато се разкрие.⁣⁣";
     keywords = [
-      "Q кетъринг",
-      "кетъринг",
-      "кетъринг Пловдив",
-      "събития",
-      "Пловдив",
-      "храна Пловдив",
-      "сватба",
-      "празник",
-      "Q catering",
-      "catering",
-      "catering Plovdiv",
-      "events",
-      "Plovdiv",
-      "food Plovdiv",
-      "wedding",
-      "celebrate",
+      "Elum Night Project",
+      "нощен клуб Пловдив",
+      "клуб Пловдив",
+      "техно Пловдив",
+      "techno club Plovdiv",
+      "underground клуб",
+      "електронна музика Пловдив",
+      "парти Пловдив",
+      "nightlife Plovdiv",
+      "Plovdiv club",
+      "dark techno",
+      "black music club",
+      "opening soon Plovdiv",
     ];
   } else if (locale === "en") {
-    title = "Q catering Plovdiv | qcatering.bg";
+    title = "Elum Night Project | elum.bg";
     description =
-      "Premium catering with taste and style! We offer gourmet delights for weddings, events, parties, and corporate gatherings.⁣⁣";
+      "The night is about to change its shape... Be there when it emerges.⁣⁣";
     keywords = [
-      "Q кетъринг",
-      "кетъринг",
-      "кетъринг Пловдив",
-      "събития",
-      "Пловдив",
-      "храна Пловдив",
-      "сватба",
-      "празник",
-      "Q catering",
-      "catering",
-      "catering Plovdiv",
-      "events",
-      "Plovdiv",
-      "food Plovdiv",
-      "wedding",
-      "celebrate",
+      "Elum Night Project",
+      "нощен клуб Пловдив",
+      "клуб Пловдив",
+      "техно Пловдив",
+      "techno club Plovdiv",
+      "underground клуб",
+      "електронна музика Пловдив",
+      "парти Пловдив",
+      "nightlife Plovdiv",
+      "Plovdiv club",
+      "dark techno",
+      "black music club",
+      "opening soon Plovdiv",
     ];
   }
 
@@ -69,7 +63,7 @@ export async function generateMetadata({
     },
   };
 
-  const metadataBase = new URL("https://qcatering.bg");
+  const metadataBase = new URL("https://elum.bg");
 
   return {
     title,

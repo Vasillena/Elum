@@ -92,7 +92,7 @@ export default function HeroCanvas() {
         </ResponsiveGroup>
 
         <Environment
-          files="/matcap-15.hdr"
+          files="/matcap.hdr"
           // background
           blur={1}
           environmentIntensity={0.7}

@@ -16,7 +16,6 @@ export default function PodiumRing() {
 
   return (
     <mesh geometry={geometry} position-y={-2.2} rotation-x={Math.PI / 2}>
-      {/* <torusGeometry args={[1.95, 0.06, 16, 64]} /> */}
       <meshStandardMaterial
         color="#ffffff"
         emissive="#ffffff"

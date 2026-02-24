@@ -12,7 +12,7 @@ export default function Loading() {
           clearInterval(interval);
           return 100;
         }
-        return prev + Math.random() * 3; // плавно нарастване
+        return prev + Math.random() * 3;
       });
     }, 50);
 
@@ -43,7 +43,6 @@ export default function Loading() {
           />
         </svg>
 
-        {/* проценти вътре в ринга */}
         <div className="absolute inset-0 flex justify-center items-center text-white text-xl">
           {Math.round(progress)}%
         </div>

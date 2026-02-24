@@ -13,9 +13,6 @@ export default function Ring() {
 
   return (
     <mesh geometry={geometry} position-z={-1} rotation={[Math.PI / 1, 0, 2.35]}>
-      {/* <torusGeometry args={[3, 0.05, 32, 200]} /> */}
-
-      {/* <meshBasicMaterial color="white" /> */}
       <meshStandardMaterial
         color="#ffffff"
         emissive="#ffffff"

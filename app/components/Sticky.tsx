@@ -128,13 +128,6 @@ export default function Sticky({ onComplete }: StickyProps) {
           </div>
         ))}
       </div>
-      {/* <div
-        className="md:hidden fixed w-full bottom-20 left-1/2 -translate-x-1/2 px-4 py-2 text-xs text-center tracking-widest
-      text-white bg-black/70 backdrop-blur-md rounded-full
-      pointer-events-none select-none"
-      >
-        click anywhere to enable sound
-      </div> */}
     </section>
   );
 }

@@ -36,7 +36,6 @@ export default function LogoModel({ mouse }: any) {
       bevelSize: 4,
       bevelSegments: 1,
       curveSegments: 12,
-      // curveSegments: 34,
     });
 
     geo.center();
@@ -82,14 +81,10 @@ export default function LogoModel({ mouse }: any) {
           distortion={10}
           distortionScale={6}
           temporalDistortion={0.2}
-          // resolution={1024}
           resolution={isMobile ? 256 : 512}
           backside
         />
       </mesh>
-      {/* <mesh geometry={geometry} castShadow>
-        <meshStandardMaterial color="black" transparent opacity={0} />
-      </mesh> */}
     </group>
   );
 }
