@@ -9,6 +9,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { MeshTransmissionMaterial } from "@react-three/drei";
 import { SVGLoader } from "three/examples/jsm/Addons.js";
 import { useBreakpoints } from "../../utils/useBreakpoints";
+import { useOrientation } from "@/app/utils/useOrientation";
 
 export default function LogoModel({ mouse }: any) {
   const groupRef = useRef<THREE.Group>(null);
@@ -19,8 +20,9 @@ export default function LogoModel({ mouse }: any) {
   const lastMouse = useRef(0);
 
   const { down } = useBreakpoints();
+  const { isPortrait } = useOrientation();
 
-  const isMobile = down("md");
+  const isMobile = down("md") || isPortrait;
 
   const baseY = 0.4;
 

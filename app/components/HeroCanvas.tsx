@@ -4,6 +4,7 @@ import * as THREE from "three";
 
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Environment, SpotLight, useGLTF } from "@react-three/drei";
+import { useEffect, useState } from "react";
 
 import { Canvas } from "@react-three/fiber";
 import CavasText from "./Text";
@@ -15,12 +16,26 @@ import Ring from "./Model/RingModel";
 import SmoothGroupPosition from "./Model/SmoothGroupPosition";
 import { useBreakpoints } from "../utils/useBreakpoints";
 import { useMouse } from "../utils/useMouse";
+import { useOrientation } from "../utils/useOrientation";
 
 export default function HeroCanvas() {
   const mouse = useMouse();
   const { down } = useBreakpoints();
+  const { isPortrait } = useOrientation();
+  const [isTouch, setIsTouch] = useState(false);
 
-  const isMobile = down("md");
+  // Определяме дали устройството е touch
+  useEffect(() => {
+    const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouch(hasTouch);
+  }, []);
+
+  const isMobile = down("md") || isPortrait;
+
+  useEffect(() => {
+    const event = new Event("resize");
+    window.dispatchEvent(event);
+  }, []);
 
   const modelX = isMobile ? 0 : -2;
   const modelY = isMobile ? -1 : 0;
@@ -71,7 +86,7 @@ export default function HeroCanvas() {
         />
 
         <ResponsiveGroup>
-          <group position={[0, 0, 0]}>
+          <group position={[0, 0, 0]} {...(isTouch ? { scale: 0.7 } : {})}>
             {/* MODEL */}
             <SmoothGroupPosition
               targetPosition={[modelX, modelY, 0]}
