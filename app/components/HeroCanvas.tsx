@@ -4,7 +4,7 @@ import * as THREE from "three";
 
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Environment, SpotLight, useGLTF } from "@react-three/drei";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import { Canvas } from "@react-three/fiber";
 import CavasText from "./Text";
@@ -24,9 +24,9 @@ export default function HeroCanvas() {
   const { isPortrait } = useOrientation();
   const [isTouch, setIsTouch] = useState(false);
 
-  // Определяме дали устройството е touch
-  useEffect(() => {
+  useLayoutEffect(() => {
     const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsTouch(hasTouch);
   }, []);
 
