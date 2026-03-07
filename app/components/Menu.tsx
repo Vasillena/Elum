@@ -98,7 +98,7 @@ export default function Menu() {
             key={index}
             ref={(el) => void (panelsRef.current[index] = el)}
             onClick={() => open(index)}
-            className={`absolute top-0 h-full flex items-center justify-center ${
+            className={`absolute top-0 h-lvh sm:h-full flex items-center justify-center ${
               isStatic ? "cursor-default" : "cursor-pointer"
             }`}
             style={{
@@ -116,7 +116,7 @@ export default function Menu() {
               boxShadow: isStatic ? "none" : "inset 0 0 30px rgba(0,0,0,0.8)",
             }}
           >
-            {!isStatic && (
+            {!isStatic && !isMobile && (
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
