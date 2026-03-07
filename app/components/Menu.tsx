@@ -79,7 +79,7 @@ export default function Menu() {
   const offsets = ["0%", "10%", "20%", "30%", "40%", "50%"];
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#0C0C0C] text-white font-sans">
+    <div className="relative w-screen h-dvh sm:h-screen overflow-hidden bg-[#0C0C0C] text-white font-sans">
       <style>
         {`
         @keyframes rippleFlow {
@@ -98,7 +98,7 @@ export default function Menu() {
             key={index}
             ref={(el) => void (panelsRef.current[index] = el)}
             onClick={() => open(index)}
-            className={`absolute top-0 h-dvh sm:h-full flex items-center justify-center ${
+            className={`absolute top-0 h-full flex items-center justify-center ${
               isStatic ? "cursor-default" : "cursor-pointer"
             }`}
             style={{
