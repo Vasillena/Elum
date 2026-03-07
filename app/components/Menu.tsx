@@ -1,34 +1,45 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { gsap } from "gsap";
 
 const categories = [
   { title: "МЕНЮ", color: "transparent", static: true },
-  { title: "БЕЗАЛКОХОЛНИ", color: "#111111" },
+  { title: "БЕЗАЛКОХОЛНИ", color: "#161616" },
   { title: "АЛКОХОЛНИ", color: "#1D1D1D" },
   { title: "КОКТЕЙЛИ", color: "#2D2D2D" },
   { title: "ВИНО", color: "#363636" },
   { title: "БИРА", color: "#414141" },
 ];
 
-const closedClip = "polygon(75% 0%, 100% 0%, 25% 100%, 0% 100%)";
+const closedClipDesktop = "polygon(75% 0%, 100% 0%, 25% 100%, 0% 100%)";
+const closedClipMobile = "polygon(0% 0%,100% 0%,100% 100%,0% 100%)";
 const openClip = "polygon(0% 0%,100% 0%,100% 100%,0% 100%)";
 
 export default function Menu() {
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [showContent, setShowContent] = useState<boolean>(false);
 
-  const panelWidth = 40; // vw
-  const gap = 10; // vw
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [showContent, setShowContent] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const panelWidth = 40;
+  const gap = 10;
   const totalWidth = panelWidth + (categories.length - 1) * gap;
-  const baseOffset = (100 - totalWidth) / 2; // vw
+  const baseOffset = (100 - totalWidth) / 2;
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const open = (index: number) => {
     if (categories[index].static || activeIndex !== null) return;
+
     setActiveIndex(index);
     setShowContent(false);
 
@@ -38,6 +49,7 @@ export default function Menu() {
     const tl = gsap.timeline({
       onComplete: () => setShowContent(true),
     });
+
     tlRef.current = tl;
 
     panelsRef.current.forEach((p, i) => {
@@ -55,7 +67,9 @@ export default function Menu() {
 
   const close = () => {
     if (!tlRef.current) return;
+
     setShowContent(false);
+
     tlRef.current.reverse();
     tlRef.current.eventCallback("onReverseComplete", () =>
       setActiveIndex(null)
@@ -68,10 +82,10 @@ export default function Menu() {
     <div className="relative w-screen h-screen overflow-hidden bg-[#0C0C0C] text-white font-sans">
       <style>
         {`
-          @keyframes rippleFlow {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-          }
+        @keyframes rippleFlow {
+          0% { background-position: 0% 0%; }
+          100% { background-position: 100% 100%; }
+        }
         `}
       </style>
 
@@ -84,21 +98,24 @@ export default function Menu() {
             key={index}
             ref={(el) => void (panelsRef.current[index] = el)}
             onClick={() => open(index)}
-            className={`absolute top-0 h-full flex items-center justify-center transition-transform duration-300 panel ${
+            className={`absolute top-0 h-full flex items-center justify-center ${
               isStatic ? "cursor-default" : "cursor-pointer"
             }`}
             style={{
-              left: `${baseOffset + index * gap}vw`,
-              width: `${panelWidth}vw`,
+              left: isMobile
+                ? `${(100 / categories.length) * index}vw`
+                : `${baseOffset + index * gap}vw`,
+              width: isMobile
+                ? `${100 / categories.length}vw`
+                : `${panelWidth}vw`,
               background:
                 cat.color !== "transparent"
                   ? `linear-gradient(145deg, ${cat.color}, #000000)`
                   : "transparent",
-              clipPath: closedClip,
+              clipPath: isMobile ? closedClipMobile : closedClipDesktop,
               boxShadow: isStatic ? "none" : "inset 0 0 30px rgba(0,0,0,0.8)",
             }}
           >
-            {/* Анимиран фон */}
             {!isStatic && (
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -115,14 +132,13 @@ export default function Menu() {
               />
             )}
 
-            {/* Заглавие, скрива се ако панела е отворен */}
             {activeIndex !== index && (
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[-59deg] z-10">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 -rotate-90 md:rotate-[-70deg] lg:rotate-[-65deg] xl:rotate-[-59deg]">
                 <h2
                   className={`tracking-widest ${
                     isStatic
-                      ? "text-8xl font-black pl-28 [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff]"
-                      : "text-sm xl:text-lg [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse"
+                      ? "text-4xl md:text-5xl lg:text-7xl font-black md:pl-28 [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff]"
+                      : "text-xs md:text-sm xl:text-lg [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse"
                   }`}
                 >
                   {cat.title}
@@ -130,17 +146,18 @@ export default function Menu() {
               </div>
             )}
 
-            {/* Съдържание на отворен панел */}
             {activeIndex === index && showContent && (
               <div className="text-center space-y-6 relative z-10">
                 <h2 className="text-sm xl:text-lg font-light tracking-wide text-gray-100">
                   {cat.title}
                 </h2>
+
                 <div className="space-y-2 text-lg text-gray-300">
                   <p>Drink 1</p>
                   <p>Drink 2</p>
                   <p>Drink 3</p>
                 </div>
+
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
