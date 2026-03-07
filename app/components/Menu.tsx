@@ -98,7 +98,7 @@ export default function Menu() {
             key={index}
             ref={(el) => void (panelsRef.current[index] = el)}
             onClick={() => open(index)}
-            className={`absolute top-0 h-lvh sm:h-full flex items-center justify-center ${
+            className={`absolute top-0 h-dvh sm:h-full flex items-center justify-center ${
               isStatic ? "cursor-default" : "cursor-pointer"
             }`}
             style={{
