@@ -138,7 +138,7 @@ export default function Menu() {
                   className={`tracking-widest ${
                     isStatic
                       ? "text-4xl md:text-5xl lg:text-7xl font-black md:pl-28 [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff]"
-                      : "text-xs md:text-sm xl:text-lg [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse"
+                      : "text-sm xl:text-lg [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse"
                   }`}
                 >
                   {cat.title}
