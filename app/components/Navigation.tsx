@@ -13,7 +13,7 @@ const pages = [
 
 interface NavigationProps {
   isOpen: boolean;
-  onClose: () => void; // <- нов callback
+  onClose: () => void;
 }
 
 export default function Navigation({ isOpen, onClose }: NavigationProps) {
@@ -45,10 +45,12 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           key={i}
           href={page.href}
           className="flex"
-          onClick={() => onClose()} // <- затваря менюто при клик
+          onClick={() => onClose()}
         >
           <div
-            ref={(el) => (panelsRef.current[i] = el)}
+            ref={(el) => {
+              panelsRef.current[i] = el;
+            }}
             onMouseEnter={() => handleHover(i)}
             onMouseLeave={handleLeave}
             className="flex w-[16vw] h-[90vh] items-center justify-center border border-white/10 rounded-2xl relative cursor-pointer group transition-all"

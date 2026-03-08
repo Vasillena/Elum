@@ -12,7 +12,6 @@ export default function NavButton() {
         onClick={() => setOpen(!open)}
         className="fixed top-8 left-8 z-100 flex flex-col justify-between w-8 h-6 p-1"
       >
-        {/* Линийките */}
         <span
           className={`block h-0.5 w-full bg-white rounded transition-all duration-300
       ${open ? "rotate-45 translate-y-1.75" : ""}
