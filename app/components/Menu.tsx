@@ -171,7 +171,7 @@ export default function Menu() {
                   {title}
                 </h2>
 
-                <div className="w-full max-w-3xl space-y-8 text-gray-300 overflow-y-auto px-8 max-h-[65vh]">
+                <div className="w-full max-w-3xl space-y-8 text-gray-300 overflow-y-auto px-8 max-h-[60vh]  md:max-h-[65vh]">
                   {getCategoryItems(title).map((item) => (
                     <div key={item.id}>
                       {item["semi-category"] && (

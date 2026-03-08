@@ -10,7 +10,7 @@ export default function NavButton() {
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="fixed top-8 left-8 z-100 flex flex-col justify-between w-8 h-6 p-1"
+        className="fixed top-8 left-4 sm:left-8 z-100 flex flex-col justify-between w-8 h-6 p-1"
       >
         <span
           className={`block h-0.5 w-full bg-white rounded transition-all duration-300
