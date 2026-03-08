@@ -1,7 +1,10 @@
 import "./globals.css";
 
 import { GilroyLight } from "../utils/fonts";
+import NavButton from "../components/NavButton";
+import Player from "../components/Player";
 import Provider from "./provider";
+import { SwitchLanguage } from "../components/SwitchLanguage";
 import TitleBarAnimation from "../components/TitleBarAnimation";
 import { setStaticParamsLocale } from "next-international/server";
 
@@ -95,7 +98,12 @@ export default async function RootLayout({
             second="Night Project"
             displayTime={1600}
           />
+          <NavButton />
           {children}
+          <div className="fixed bottom-4 -right-8 lg:right-0 flex flex-col gap-14">
+            <Player />
+            <SwitchLanguage />
+          </div>
         </Provider>
       </body>
     </html>

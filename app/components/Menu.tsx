@@ -154,7 +154,7 @@ export default function Menu() {
             {activeIndex !== index && (
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 -rotate-90 md:rotate-[-70deg] lg:rotate-[-65deg] xl:rotate-[-60deg]">
                 <h2
-                  className={`uppercase tracking-widest [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] ${
+                  className={`uppercase tracking-widest text-nowrap [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] ${
                     isStatic
                       ? "text-4xl md:text-5xl lg:text-7xl font-black md:pl-28"
                       : "text-lg animate-pulse"
@@ -183,7 +183,7 @@ export default function Menu() {
                       <div className="flex items-center">
                         <p>{item.name}</p>
 
-                        <span className="flex-grow border-b border-dotted border-gray-500 mx-2" />
+                        <span className="grow border-b border-dotted border-gray-500 mx-2" />
 
                         <p>
                           {item.quantity} / {item.price}
