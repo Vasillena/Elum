@@ -80,13 +80,15 @@ export default function HeroCanvas() {
           shadow-camera-top={5}
           shadow-camera-bottom={-5}
         />
-        <SpotLight
-          position={[6.5, 3.28, 0]}
-          distance={280}
-          angle={10}
-          attenuation={6}
-          anglePower={10}
-        />
+        {!isMobile && (
+          <SpotLight
+            position={[6.5, 3.28, 0]}
+            distance={280}
+            angle={10}
+            attenuation={6}
+            anglePower={10}
+          />
+        )}
 
         <CameraRig input={isMobile ? orientation : mouse} />
 
