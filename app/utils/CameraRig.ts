@@ -10,21 +10,21 @@ import { useRef } from "react";
 export default function CameraRig({ input }: any) {
   const { camera } = useThree();
 
-  const target = useRef(new THREE.Vector3());
-  const current = useRef(new THREE.Vector3());
+  const basePosition = useRef(camera.position.clone());
+  const offset = useRef(new THREE.Vector3());
 
   useFrame(() => {
     const x = input.current.x;
     const y = input.current.y;
 
-    // target position
-    target.current.set(x * 0.4, y * 0.2 + 0.5, camera.position.z);
+    // много малък parallax offset
+    offset.current.set(x * 0.2, y * 0.1, 0);
 
-    // smooth lerp
-    current.current.lerp(target.current, 0.05);
-
-    // вместо директна промяна на x/y
-    camera.position.copy(current.current);
+    // добавяме го към оригиналната позиция
+    camera.position.lerp(
+      basePosition.current.clone().add(offset.current),
+      0.05
+    );
 
     camera.lookAt(0, 0, 0);
   });
