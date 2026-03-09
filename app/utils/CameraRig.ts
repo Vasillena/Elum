@@ -10,22 +10,25 @@ import { useRef } from "react";
 export default function CameraRig({ input }: any) {
   const { camera } = useThree();
 
-  const basePosition = useRef(camera.position.clone());
-  const offset = useRef(new THREE.Vector3());
+  const base = useRef(camera.position.clone());
+  const target = useRef(new THREE.Vector3());
+  const current = useRef(new THREE.Vector3());
 
   useFrame(() => {
     const x = input.current.x;
     const y = input.current.y;
 
-    // много малък parallax offset
-    offset.current.set(x * 0.2, y * 0.1, 0);
-
-    // добавяме го към оригиналната позиция
-    camera.position.lerp(
-      basePosition.current.clone().add(offset.current),
-      0.05
+    // по-видим offset
+    target.current.set(
+      base.current.x + x * 0.8,
+      base.current.y + y * 0.4,
+      base.current.z
     );
 
+    // smooth
+    current.current.lerp(target.current, 0.08);
+
+    camera.position.copy(current.current);
     camera.lookAt(0, 0, 0);
   });
 
