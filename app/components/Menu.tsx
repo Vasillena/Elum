@@ -1,11 +1,11 @@
 "use client";
 
+import { useCurrentLocale, useI18n } from "@/locales/client";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { gsap } from "gsap";
 import menuBG from "./../menuList/menuListBG.json";
 import menuEN from "./../menuList/menuList.json";
-import { useCurrentLocale } from "@/locales/client";
 
 const categories = [
   { bg: "Безалкохолни", en: "Soft Drinks", color: "#161616" },
@@ -20,6 +20,7 @@ const openClip = "polygon(0% 0%,100% 0%,100% 100%,0% 100%)";
 
 export default function Menu() {
   const locale = useCurrentLocale();
+  const t = useI18n();
 
   const menuList = useMemo(() => {
     return locale === "bg" ? menuBG : menuEN;
@@ -185,7 +186,7 @@ export default function Menu() {
                   }}
                   className="mt-10 px-16 py-2.5 border-[0.5px] rounded-full text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] transition-transform duration-300 shadow-[0_0_16px_rgba(255,255,255,0.3)]"
                 >
-                  Back
+                  {t("hero.button")}
                 </button>
               </div>
             )}

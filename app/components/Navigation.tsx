@@ -64,8 +64,8 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
             />
 
             {/* vertical text wrapper */}
-            <div className="flex items-center justify-center [writing-mode:vertical-rl] [text-orientation:upright] [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse">
-              <h2 className="text-white text-2xl tracking-[0.5em]">
+            <div className="flex items-center justify-center [writing-mode:vertical-rl] lg:[writing-mode:horizontal-tb] [text-orientation:upright] lg:[text-orientation:mixed] [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse">
+              <h2 className="text-white text-2xl tracking-[0.2em]">
                 {page.title}
               </h2>
               {/* {page.subtitle && (
