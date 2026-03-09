@@ -15,11 +15,13 @@ import ResponsiveGroup from "./Model/ResponsiveGroup";
 import Ring from "./Model/RingModel";
 import SmoothGroupPosition from "./Model/SmoothGroupPosition";
 import { useBreakpoints } from "../utils/useBreakpoints";
+import { useDeviceOrientation } from "../utils/useDeviceOrientation";
 import { useMouse } from "../utils/useMouse";
 import { useOrientation } from "../utils/useOrientation";
 
 export default function HeroCanvas() {
   const mouse = useMouse();
+  const { orientation, requestPermission, enabled } = useDeviceOrientation();
   const { down } = useBreakpoints();
   const { isPortrait } = useOrientation();
   const [isTouch, setIsTouch] = useState(false);
@@ -96,7 +98,7 @@ export default function HeroCanvas() {
               <Ring />
               <Podium />
               <PodiumRing />
-              <LogoModel mouse={mouse} />
+              <LogoModel mouse={isMobile ? orientation : mouse} />
             </SmoothGroupPosition>
 
             {/* TEXT */}
@@ -131,6 +133,14 @@ export default function HeroCanvas() {
           far={10}
         /> */}
       </Canvas>
+      {isMobile && !enabled && (
+        <button
+          onClick={requestPermission}
+          className="absolute z-20 bottom-10 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg text-white"
+        >
+          Enable motion
+        </button>
+      )}
     </div>
   );
 }
