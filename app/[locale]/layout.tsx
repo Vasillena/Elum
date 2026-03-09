@@ -100,7 +100,7 @@ export default async function RootLayout({
           />
           <NavButton />
           {children}
-          <div className="fixed bottom-4 -left-6 sm:left-auto sm:-right-8 lg:right-0 flex flex-col gap-14">
+          <div className="fixed bottom-4 -right-8 lg:-right-2 flex flex-col gap-18">
             <Player />
             <SwitchLanguage />
           </div>

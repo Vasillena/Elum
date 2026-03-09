@@ -25,7 +25,7 @@ export default function Loading() {
   const offset = ((100 - progress) / 100) * circumference;
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center bg-[#05080f]">
+    <div className="w-screen h-screen flex justify-center items-center bg-[#0C0C0C]">
       <div className="relative">
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
           <circle

@@ -15,7 +15,7 @@ export default function NotFound() {
           <div className="mt-10 flex justify-center">
             <Link
               href="/"
-              className="relative w-44 lg:w-60 h-10 lg:h-14 flex items-center justify-center text-sm lg:text-lg hover:scale-105 transition-transform duration-300 text-black bg-white  [box-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff]  rounded-full"
+              className="relative px-16 py-2.5 border-[0.5px] rounded-full text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] transition-transform duration-300 shadow-[0_0_16px_rgba(255,255,255,0.3)]"
             >
               <span className="z-10">Начална страница</span>
             </Link>

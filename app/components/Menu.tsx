@@ -8,21 +8,14 @@ import menuEN from "./../menuList/menuList.json";
 import { useCurrentLocale } from "@/locales/client";
 
 const categories = [
-  { bg: "МЕНЮ", en: "MENU", color: "transparent", static: true },
-
-  { bg: "Безалкохолни Напитки", en: "Soft Drinks", color: "#161616" },
-
+  { bg: "Безалкохолни", en: "Soft Drinks", color: "#161616" },
   { bg: "Алкохол", en: "Alcohol", color: "#1D1D1D" },
-
   { bg: "Коктейли", en: "Mixed Drinks", color: "#2D2D2D" },
-
   { bg: "Вино", en: "Wine", color: "#363636" },
-
   { bg: "Бира", en: "Beer", color: "#414141" },
 ];
 
-const closedClipDesktop = "polygon(75% 0%, 100% 0%, 25% 100%, 0% 100%)";
-const closedClipMobile = "polygon(0% 0%,100% 0%,100% 100%,0% 100%)";
+const closedClip = "polygon(0% 0%,100% 0%,100% 100%,0% 100%)";
 const openClip = "polygon(0% 0%,100% 0%,100% 100%,0% 100%)";
 
 export default function Menu() {
@@ -39,13 +32,13 @@ export default function Menu() {
   const [showContent, setShowContent] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const panelWidth = 40;
-  const gap = 10;
-  const totalWidth = panelWidth + (categories.length - 1) * gap;
-  const baseOffset = (100 - totalWidth) / 2;
+  //   const panelWidth = 40;
+  //   const gap = 10;
+  //   const totalWidth = panelWidth + (categories.length - 1) * gap;
+  //   const baseOffset = (100 - totalWidth) / 2;
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
+    const check = () => setIsMobile(window.innerWidth < 640);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
@@ -56,8 +49,6 @@ export default function Menu() {
   };
 
   const open = (index: number) => {
-    if (categories[index].static || activeIndex !== null) return;
-
     setActiveIndex(index);
     setShowContent(false);
 
@@ -108,7 +99,6 @@ export default function Menu() {
       </style>
 
       {categories.map((cat, index) => {
-        const isStatic = cat.static || false;
         const offset = offsets[index % offsets.length];
         const title = locale === "bg" ? cat.bg : cat.en;
 
@@ -117,25 +107,17 @@ export default function Menu() {
             key={index}
             ref={(el) => void (panelsRef.current[index] = el)}
             onClick={() => open(index)}
-            className={`absolute top-0 h-full flex items-center justify-center ${
-              isStatic ? "cursor-default" : "cursor-pointer"
-            }`}
+            className={`absolute top-0 h-full flex items-center justify-center `}
             style={{
-              left: isMobile
-                ? `${(100 / categories.length) * index}vw`
-                : `${baseOffset + index * gap}vw`,
-              width: isMobile
-                ? `${100 / categories.length}vw`
-                : `${panelWidth}vw`,
-              background:
-                cat.color !== "transparent"
-                  ? `linear-gradient(145deg, ${cat.color}, #000000)`
-                  : "transparent",
-              clipPath: isMobile ? closedClipMobile : closedClipDesktop,
-              boxShadow: isStatic ? "none" : "inset 0 0 30px rgba(0,0,0,0.8)",
+              left: `${(100 / categories.length) * index}vw`,
+
+              width: `${100 / categories.length}vw`,
+              background: `linear-gradient(145deg, ${cat.color}, #000000)`,
+              clipPath: closedClip,
+              boxShadow: "inset 0 0 30px rgba(0,0,0,0.8)",
             }}
           >
-            {!isStatic && !isMobile && (
+            {!isMobile && (
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -152,13 +134,10 @@ export default function Menu() {
             )}
 
             {activeIndex !== index && (
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 -rotate-90 md:rotate-[-70deg] lg:rotate-[-65deg] xl:rotate-[-60deg]">
+              <div className="flex justify-center items-center z-10">
                 <h2
-                  className={`uppercase tracking-widest text-nowrap [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] ${
-                    isStatic
-                      ? "text-4xl md:text-5xl lg:text-7xl font-black md:pl-28"
-                      : "text-lg animate-pulse"
-                  }`}
+                  className={`uppercase tracking-widest text-center [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] text-lg animate-pulse -rotate-90 lg:rotate-0 text-nowrap lg:text-wrap"
+                  `}
                 >
                   {title}
                 </h2>
@@ -204,7 +183,7 @@ export default function Menu() {
                     e.stopPropagation();
                     close();
                   }}
-                  className="mt-10 px-6 py-2 border border-gray-500 hover:bg-gray-700 transition"
+                  className="mt-10 px-16 py-2.5 border-[0.5px] rounded-full text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] transition-transform duration-300 shadow-[0_0_16px_rgba(255,255,255,0.3)]"
                 >
                   Back
                 </button>
