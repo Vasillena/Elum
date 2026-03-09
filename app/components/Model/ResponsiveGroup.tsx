@@ -8,9 +8,9 @@ export default function ResponsiveGroup({ children }: any) {
 
   const isMobile = down("sm");
 
-  const baseWidth = isMobile ? 860 : 1500;
+  const baseWidth = isMobile ? 700 : 1500;
 
-  const xlWidth = 1280; // твоя breakpoint
+  const xlWidth = 1280;
   const maxScale = xlWidth / baseWidth;
 
   const scale = Math.min(size.width / baseWidth, maxScale);

@@ -292,7 +292,7 @@ function PlayerHint() {
       ref={ref}
       className="fixed bottom-28 right-12 sm:right-20 px-2 py-1 text-md text-white whitespace-nowrap bg-black/70 backdrop-blur-md rounded-full pointer-events-none select-none"
     >
-      click to toggle sound
+      click to toggle sound {"->"}
     </div>
   );
 }
