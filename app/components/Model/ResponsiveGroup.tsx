@@ -8,7 +8,7 @@ export default function ResponsiveGroup({ children }: any) {
 
   const isMobile = down("sm");
 
-  const baseWidth = isMobile ? 700 : 1500;
+  const baseWidth = isMobile ? 600 : 1500;
 
   const xlWidth = 1280;
   const maxScale = xlWidth / baseWidth;
