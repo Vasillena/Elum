@@ -90,7 +90,7 @@ export default function HeroCanvas() {
           />
         )}
 
-        <CameraRig input={isMobile ? orientation : mouse} />
+        {/* <CameraRig input={isMobile ? orientation : mouse} /> */}
 
         <ResponsiveGroup>
           <group position={[0, 0, 0]} {...(isTouch ? { scale: 0.7 } : {})}>
