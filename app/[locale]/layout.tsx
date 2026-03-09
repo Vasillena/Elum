@@ -98,7 +98,7 @@ export default async function RootLayout({
             second="Night Project"
             displayTime={1600}
           />
-          {/* <NavButton /> */}
+          <NavButton />
           {children}
           <div className="fixed bottom-4 -right-8 lg:-right-2 flex flex-col gap-18">
             <Player />
