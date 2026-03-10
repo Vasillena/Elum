@@ -12,7 +12,7 @@ ELUM is an upcoming nightclub concept designed to offer a different kind of nigh
 This project is built with Next.js, Tailwind, GSAP and Three.js.
    <br/>
 
-View project at: https://elum-theta.vercel.app
+View project at: https://elum.bg
 <br/>
 Read about project: https://www.behance.net/gallery/244911373/Elum-Night-Project
 
