@@ -107,7 +107,13 @@ export default function Sticky({ onComplete }: StickyProps) {
 
                 {/* Logo */}
                 <div className="absolute flex flex-col items-center gap-4 mt-12">
-                  <Image src={logo} alt="Elum logo" width={72} height={303} />
+                  <Image
+                    src={logo}
+                    alt="Elum logo"
+                    width={72}
+                    height={303}
+                    priority
+                  />
 
                   {/* Scroll dots */}
                   <div className="flex flex-col items-center gap-2">
