@@ -3,8 +3,7 @@
 import * as THREE from "three";
 
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import { Environment, SpotLight, useGLTF } from "@react-three/drei";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { Environment, SpotLight } from "@react-three/drei";
 
 // import CameraRig from "../utils/CameraRig";
 import { Canvas } from "@react-three/fiber";
@@ -17,6 +16,7 @@ import Ring from "./Model/RingModel";
 import SmoothGroupPosition from "./Model/SmoothGroupPosition";
 import { useBreakpoints } from "../utils/useBreakpoints";
 import { useDeviceOrientation } from "../utils/useDeviceOrientation";
+import { useEffect } from "react";
 import { useI18n } from "@/locales/client";
 import useIsTouchDevice from "../utils/useIsTouchDevice";
 import { useMouse } from "../utils/useMouse";
