@@ -18,14 +18,12 @@ export default function CameraRig({ input }: any) {
     const x = input.current.x;
     const y = input.current.y;
 
-    // по-видим offset
     target.current.set(
       base.current.x + x * 0.8,
       base.current.y + y * 0.4,
       base.current.z
     );
 
-    // smooth
     current.current.lerp(target.current, 0.08);
 
     camera.position.copy(current.current);

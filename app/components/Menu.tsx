@@ -33,11 +33,6 @@ export default function Menu() {
   const [showContent, setShowContent] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  //   const panelWidth = 40;
-  //   const gap = 10;
-  //   const totalWidth = panelWidth + (categories.length - 1) * gap;
-  //   const baseOffset = (100 - totalWidth) / 2;
-
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 640);
     check();

@@ -17,7 +17,7 @@ export function useDeviceOrientation() {
         setEnabled(true);
       }
     } else {
-      setEnabled(true); // Android няма нужда
+      setEnabled(true);
     }
   };
 

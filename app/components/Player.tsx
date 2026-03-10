@@ -204,7 +204,7 @@ export default function Player() {
 
   return (
     <>
-      <audio ref={audioRef} src="/Tension.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/Suspense Rises.mp3" loop preload="auto" />
 
       <div
         className="relative cursor-pointer select-none text-white font-bold text-sm flex items-center gap-2 -rotate-90"
@@ -262,7 +262,6 @@ export default function Player() {
   );
 }
 
-// Подсказката вече се появява плавно веднъж
 function PlayerHint() {
   const ref = useRef<HTMLDivElement>(null);
 

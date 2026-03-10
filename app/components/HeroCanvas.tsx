@@ -6,7 +6,7 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Environment, SpotLight, useGLTF } from "@react-three/drei";
 import { useEffect, useLayoutEffect, useState } from "react";
 
-import CameraRig from "../utils/CameraRig";
+// import CameraRig from "../utils/CameraRig";
 import { Canvas } from "@react-three/fiber";
 import CavasText from "./Text";
 import LogoModel from "./Model/LogoModel";
@@ -150,4 +150,4 @@ export default function HeroCanvas() {
   );
 }
 
-useGLTF.preload("/elum.glb");
+// useGLTF.preload("/elum.glb");
