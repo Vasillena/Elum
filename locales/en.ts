@@ -9,5 +9,6 @@ export default {
     "not-found-text":
       "The page you are looking for does not exist, is unavailable, or is loading incorrectly.",
     "not-found-button": "Home Page",
+    motion: "Enable motion",
   },
 } as const;

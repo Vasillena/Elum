@@ -17,21 +17,25 @@ import Ring from "./Model/RingModel";
 import SmoothGroupPosition from "./Model/SmoothGroupPosition";
 import { useBreakpoints } from "../utils/useBreakpoints";
 import { useDeviceOrientation } from "../utils/useDeviceOrientation";
+import { useI18n } from "@/locales/client";
+import useIsTouchDevice from "../utils/useIsTouchDevice";
 import { useMouse } from "../utils/useMouse";
 import { useOrientation } from "../utils/useOrientation";
 
 export default function HeroCanvas() {
+  const t = useI18n();
   const mouse = useMouse();
   const { orientation, requestPermission, enabled } = useDeviceOrientation();
   const { down } = useBreakpoints();
   const { isPortrait } = useOrientation();
-  const [isTouch, setIsTouch] = useState(false);
+  const isTouch = useIsTouchDevice();
+  // const [isTouch, setIsTouch] = useState(false);
 
-  useLayoutEffect(() => {
-    const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsTouch(hasTouch);
-  }, []);
+  // useLayoutEffect(() => {
+  //   const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  //   // eslint-disable-next-line react-hooks/set-state-in-effect
+  //   setIsTouch(hasTouch);
+  // }, []);
 
   const isMobile = down("md") || isPortrait;
 
@@ -103,7 +107,7 @@ export default function HeroCanvas() {
               <Ring />
               <Podium />
               <PodiumRing />
-              <LogoModel mouse={isMobile ? orientation : mouse} />
+              <LogoModel mouse={isTouch ? orientation : mouse} />
             </SmoothGroupPosition>
 
             {/* TEXT */}
@@ -138,12 +142,12 @@ export default function HeroCanvas() {
           far={10}
         /> */}
       </Canvas>
-      {isMobile && !enabled && (
+      {isTouch && !enabled && (
         <button
           onClick={requestPermission}
-          className="absolute z-20 bottom-10 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg text-white"
+          className="absolute z-20 bottom-10 left-1/2 -translate-x-1/2 px-16 py-2.5 border-[0.5px] rounded-full text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] transition-transform duration-300 shadow-[0_0_16px_rgba(255,255,255,0.3)]"
         >
-          Enable motion
+          {t("hero.motion")}
         </button>
       )}
     </div>
