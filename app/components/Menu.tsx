@@ -185,7 +185,7 @@ export default function Menu() {
 
                           <span className="text-[#dbbf91] text-sm md:mt-0 mt-auto">
                             {item.price} € /{" "}
-                            {(Number(item.price) * 1.95583).toFixed(2)} BGN
+                            {(Number(item.price) * 1.95583).toFixed(2)} lv
                           </span>
                         </div>
                       </div>
