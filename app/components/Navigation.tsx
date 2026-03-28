@@ -2,14 +2,8 @@
 
 import Link from "next/link";
 import { gsap } from "gsap";
+import { useI18n } from "@/locales/client";
 import { useRef } from "react";
-
-const pages = [
-  { title: "HOME", href: "/" },
-  { title: "MENU", href: "/menu" },
-  { title: "GALLERY", subtitle: "( Coming soon )", href: "" },
-  { title: "CONTACT", subtitle: "( Coming soon )", href: "" },
-];
 
 interface NavigationProps {
   isOpen: boolean;
@@ -18,6 +12,14 @@ interface NavigationProps {
 
 export default function Navigation({ isOpen, onClose }: NavigationProps) {
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const t = useI18n();
+
+  const pages = [
+    { title: t("hero.home"), href: "/" },
+    { title: t("hero.menu"), href: "/menu" },
+    { title: t("hero.gallery"), subtitle: t("hero.soon"), href: "" },
+    { title: t("hero.contact"), href: "/contact" },
+  ];
 
   const handleHover = (index: number) => {
     gsap.to(panelsRef.current, { flex: 1, duration: 0.5, ease: "power3.out" });
@@ -33,7 +35,8 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
   };
 
   return (
-    <div
+    <nav
+      aria-label="Main navigation"
       className={`fixed inset-0 z-50 w-screen mx-auto px-6 sm:px-20 backdrop-blur-xl bg-black/50 flex justify-between items-center transition-opacity duration-500 font-sans ${
         isOpen
           ? "opacity-100 pointer-events-auto"
@@ -64,19 +67,20 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
             />
 
             {/* vertical text wrapper */}
-            <div className="flex items-center justify-center [writing-mode:vertical-rl] lg:[writing-mode:horizontal-tb] [text-orientation:upright] lg:[text-orientation:mixed] [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse">
+            {/* <div className="flex flex-col items-center justify-center [writing-mode:vertical-rl] lg:[writing-mode:horizontal-tb] [text-orientation:upright] lg:[text-orientation:mixed] [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse"> */}
+            <div className="flex flex-col items-center justify-center -rotate-90 lg:rotate-0  [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse">
               <h2 className="text-white text-2xl tracking-[0.2em]">
                 {page.title}
               </h2>
-              {/* {page.subtitle && (
+              {page.subtitle && (
                 <p className="text-white text-xl whitespace-nowrap">
                   {page.subtitle}
                 </p>
-              )} */}
+              )}
             </div>
           </div>
         </Link>
       ))}
-    </div>
+    </nav>
   );
 }

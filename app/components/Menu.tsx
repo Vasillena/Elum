@@ -8,11 +8,12 @@ import menuBG from "./../menuList/menuListBG.json";
 import menuEN from "./../menuList/menuList.json";
 
 const categories = [
-  { bg: "Безалкохолни", en: "Soft Drinks", color: "#161616" },
-  { bg: "Алкохол", en: "Alcohol", color: "#1D1D1D" },
-  { bg: "Коктейли", en: "Mixed Drinks", color: "#2D2D2D" },
-  { bg: "Вино", en: "Wine", color: "#363636" },
-  { bg: "Бира", en: "Beer", color: "#414141" },
+  { bg: "Празнична селекция", en: "Celebration", color: "#161616" },
+  { bg: "Бутилки", en: "Bottles", color: "#1D1D1D" },
+  { bg: "Шампанско & Вино", en: "Champagne & Wine", color: "#2D2D2D" },
+  { bg: "Алкохол", en: "Alcohol", color: "#363636" },
+  { bg: "Безалкохолни", en: "Soft Drinks", color: "#414141" },
+  { bg: "Бира", en: "Beer", color: "#595959" },
 ];
 
 const closedClip = "polygon(0% 0%,100% 0%,100% 100%,0% 100%)";
@@ -45,6 +46,8 @@ export default function Menu() {
   };
 
   const open = (index: number) => {
+    if (activeIndex === index) return;
+
     setActiveIndex(index);
     setShowContent(false);
 
@@ -132,7 +135,7 @@ export default function Menu() {
             {activeIndex !== index && (
               <div className="flex justify-center items-center z-10">
                 <h2
-                  className={`uppercase tracking-widest text-center [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] text-lg animate-pulse -rotate-90 lg:rotate-0 text-nowrap lg:text-wrap"
+                  className={`uppercase tracking-widest text-center [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] text-lg animate-pulse text-nowrap lg:text-wrap -rotate-90 lg:rotate-0 lg:px-2
                   `}
                 >
                   {title}
@@ -141,7 +144,10 @@ export default function Menu() {
             )}
 
             {activeIndex === index && showContent && (
-              <div className="w-full h-full flex flex-col items-center pt-20 pb-10 relative z-10">
+              <div
+                className="w-full h-full flex flex-col items-center pt-20 pb-10 relative z-10"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <h2 className="text-xl md:text-2xl mb-10 uppercase tracking-widest [text-shadow:0_0_5px_#ffffff,0_0_15px_#ffffff,0_0_30px_#ffffff] animate-pulse">
                   {title}
                 </h2>
@@ -155,7 +161,7 @@ export default function Menu() {
                         </p>
                       )}
 
-                      <div className="flex items-center">
+                      {/* <div className="flex items-center">
                         <p>{item.name}</p>
 
                         <span className="grow border-b border-dotted border-gray-500 mx-2" />
@@ -163,13 +169,32 @@ export default function Menu() {
                         <p>
                           {item.quantity} / {item.price}
                         </p>
+                      </div> */}
+
+                      <div className="flex justify-between items-end">
+                        <p className="flex-1 flex items-center gap-2 min-w-0">
+                          <span>{item.name}</span>
+
+                          <span className="hidden md:flex flex-1 border-b border-dotted border-gray-500 self-center"></span>
+                        </p>
+
+                        <div className="flex flex-col items-end whitespace-nowrap leading-tight md:pl-1">
+                          <span className="text-gray-400 text-xs">
+                            {item.quantity}
+                          </span>
+
+                          <span className="text-[#dbbf91] text-sm md:mt-0 mt-auto">
+                            {item.price} € /{" "}
+                            {(Number(item.price) * 1.95583).toFixed(2)} BGN
+                          </span>
+                        </div>
                       </div>
 
-                      {item.description && (
+                      {/* {item.description && (
                         <p className="text-sm text-gray-400 mt-1">
                           {item.description}
                         </p>
-                      )}
+                      )} */}
                     </div>
                   ))}
                 </div>
