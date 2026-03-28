@@ -5,21 +5,21 @@
       "category": "Celebration",
       "semi-category": "Recommended by House",
       "name": "Billecart-Salmon Brut Réserve Champagne |France|",
-      "price": "300.00 €/586.75 BGN",
+      "price": "300.00",
       "quantity": "1.5 l"
     },
     {
       "id": 2,
       "category": "Celebration",
       "name": "Billecart-Salmon Brut Réserve Champagne |France|",
-      "price": "600.00 €/1173.50 BGN",
+      "price": "600.00",
       "quantity": "3 l"
     },
     {
       "id": 3,
       "category": "Celebration",
       "name": "Grey Goose Vodka (Magnum)",
-      "price": "280.00 €/547.63 BGN",
+      "price": "280.00",
       "quantity": "1.5 l"
     },
     {
@@ -27,14 +27,14 @@
       "category": "Celebration",
       "semi-category": "Premium Experience",
       "name": "Dom Pérignon Vintage 2015 Champagne |France|",
-      "price": "600.00 €/3.91 BGN",
+      "price": "600.00",
       "quantity": "750 ml"
     },
     {
       "id": 5,
       "category": "Celebration",
       "name": "Patrón El Cielo Tequila",
-      "price": "500.00 €/3.91 BGN",
+      "price": "500.00",
       "quantity": "700 ml"
     },
     {
@@ -42,7 +42,7 @@
       "category": "Celebration",
       "semi-category": "Light & Social",
       "name": "Château d’Esclans Whispering Angel Rosé |France|",
-      "price": "300.00 €/3.91 BGN",
+      "price": "300.00",
       "quantity": "3 l"
     },
     {
@@ -50,42 +50,42 @@
       "category": "Bottles",
       "semi-category": "Magnum Experience",
       "name": "Grey Goose Vodka Magnum",
-      "price": "280.00 €/3.91 BGN",
+      "price": "280.00",
       "quantity": "1.5 l"
     },
     {
       "id": 8,
       "category": "Bottles",
       "name": "Billecart-Salmon Brut Réserve Champagne |France|",
-      "price": "300.00 €/3.91 BGN",
+      "price": "300.00",
       "quantity": "1.5 l"
     },
     {
       "id": 9,
       "category": "Bottles",
       "name": "Billecart-Salmon Brut Réserve Champagne |France|",
-      "price": "600.00 €/3.91 BGN",
+      "price": "600.00",
       "quantity": "3 l"
     },
     {
       "id": 10,
       "category": "Bottles",
       "name": "Château d’Esclans Whispering Angel Rosé |France|",
-      "price": "300.00 €/3.91 BGN",
+      "price": "300.00",
       "quantity": "3 l"
     },
     {
       "id": 11,
       "category": "Bottles",
       "name": "Andreola Valdobbiadene Prosecco Dirupo DOCG |Italy|",
-      "price": "100.00 €/3.91 BGN",
+      "price": "100.00",
       "quantity": "1.5 l"
     },
     {
       "id": 12,
       "category": "Bottles",
       "name": "Andreola Valdobbiadene Prosecco Dirupo DOCG |Italy|",
-      "price": "230.00 €/3.91 BGN",
+      "price": "230.00",
       "quantity": "3 l"
     },
     {
@@ -93,133 +93,133 @@
       "category": "Bottles",
       "semi-category": "Bottles",
       "name": "Patrón El Alto Plata Tequila ",
-      "price": "500.00 €/3.91 BGN",
+      "price": "500.00",
       "quantity": "700 ml"
     },
     {
       "id": 14,
       "category": "Bottles",
       "name": "Patrón El Cielo Tequila",
-      "price": "500.00 €/3.91 BGN",
+      "price": "500.00",
       "quantity": "700 ml"
     },
     {
       "id": 15,
       "category": "Bottles",
       "name": "Grey Goose Vodka",
-      "price": "130.00 €/3.91 BGN",
+      "price": "130.00",
       "quantity": "700 ml"
     },
     {
       "id": 16,
       "category": "Bottles",
       "name": "Beluga Vodka",
-      "price": "130.00 €/3.91 BGN",
+      "price": "130.00",
       "quantity": "700 ml"
     },
     {
       "id": 17,
       "category": "Bottles",
       "name": "Reyka vodka",
-      "price": "84.00 €/3.91 BGN",
+      "price": "84.00",
       "quantity": "700 ml"
     },
     {
       "id": 18,
       "category": "Bottles",
       "name": "The Macallan 12 Years Old Single Malt",
-      "price": "200.00 €/3.91 BGN",
+      "price": "200.00",
       "quantity": "700 ml"
     },
     {
       "id": 19,
       "category": "Bottles",
       "name": "Glenfiddich 12 Years Old Single Malt Scotch Whisky",
-      "price": "130.00 €/3.91 BGN",
+      "price": "130.00",
       "quantity": "700 ml"
     },
     {
       "id": 20,
       "category": "Bottles",
       "name": "Monkey Shoulder Smokey Monkey Blended Malt Scotch Whisky",
-      "price": "110.00 €/3.91 BGN",
+      "price": "110.00",
       "quantity": "700 ml"
     },
     {
       "id": 21,
       "category": "Bottles",
       "name": "Hendrick’s Gin",
-      "price": "110.00 €/3.91 BGN",
+      "price": "110.00",
       "quantity": "700 ml"
     },
     {
       "id": 22,
       "category": "Bottles",
       "name": "Bombay Sapphire London Dry Gin",
-      "price": "77.00 €/3.91 BGN",
+      "price": "77.00",
       "quantity": "700 ml"
     },
     {
       "id": 23,
       "category": "Soft Drinks",
       "name": "Acqua Panna",
-      "price": "4.00 €/3.91 BGN",
+      "price": "4.00",
       "quantity": "250 ml"
     },
     {
       "id": 24,
       "category": "Soft Drinks",
       "name": "San Pellegrino",
-      "price": "4.00 €/4.89 BGN",
+      "price": "4.00",
       "quantity": "250 ml"
     },
     {
       "id": 25,
       "category": "Soft Drinks",
       "name": "Red Bull",
-      "price": "4.00 €/7.82 BGN",
+      "price": "4.00",
       "quantity": "250 ml"
     },
     {
       "id": 26,
       "category": "Soft Drinks",
       "name": "Coca-Cola Products",
-      "price": "2.90 €/4.89 BGN",
+      "price": "2.90",
       "quantity": "250 ml"
     },
     {
       "id": 27,
       "category": "Soft Drinks",
       "name": "Банкя",
-      "price": "2.50 €/6.85 BGN",
+      "price": "2.50",
       "quantity": "330 ml"
     },
     {
       "id": 28,
       "category": "Soft Drinks",
       "name": "Schweppes",
-      "price": "2.50 €/6.85 BGN",
+      "price": "2.50",
       "quantity": "330 ml"
     },
     {
       "id": 29,
       "category": "Soft Drinks",
       "name": "Fuzetea",
-      "price": "2.80 €/7.82 BGN",
+      "price": "2.80",
       "quantity": "250 ml"
     },
     {
       "id": 29.1,
       "category": "Soft Drinks",
       "name": "Greno Juice",
-      "price": "3.50 €/7.82 BGN",
+      "price": "3.50",
       "quantity": "250 ml"
     },
     {
       "id": 30,
       "category": "Soft Drinks",
       "name": "Three Cent",
-      "price": "4.00 €/7.82 BGN",
+      "price": "4.00",
       "quantity": "250 ml"
     },
     {
@@ -227,63 +227,63 @@
       "category": "Champagne & Wine",
       "semi-category": "Champagne",
       "name": "Dom Pérignon Vintage 2015 Champagne France",
-      "price": "600.00 €/110.50 BGN",
+      "price": "600.00",
       "quantity": "750 ml"
     },
     {
       "id": 32,
       "category": "Champagne & Wine",
       "name": "Ruinart Blanc de Blancs Champagne |France|",
-      "price": "220.00 €/10.76 BGN",
+      "price": "220.00",
       "quantity": "750 ml"
     },
     {
       "id": 33,
       "category": "Champagne & Wine",
       "name": "Billecart-Salmon Brut Réserve Rosé Champagne |France|",
-      "price": "180.00 €/65.52 BGN",
+      "price": "250.00",
       "quantity": "750 ml"
     },
     {
       "id": 34,
       "category": "Champagne & Wine",
       "name": "Billecart-Salmon Brut Réserve Champagne |France|",
-      "price": "250.00 €/65.52 BGN",
+      "price": "180.00",
       "quantity": "750 ml"
     },
     {
       "id": 35,
       "category": "Champagne & Wine",
       "name": "Veuve Clicquot, Brut Champagne |France|",
-      "price": "180.00 €/65.52 BGN",
+      "price": "180.00",
       "quantity": "750 ml"
     },
     {
       "id": 36,
       "category": "Champagne & Wine",
       "name": "Veuve Clicquot, Brut Rose Champagne |France|",
-      "price": "180.00 €/65.52 BGN",
+      "price": "180.00",
       "quantity": "750 ml"
     },
     {
       "id": 37,
       "category": "Champagne & Wine",
       "name": "Moët & Chandon Ice Impérial Champagne |France|",
-      "price": "180.00 €/65.52 BGN",
+      "price": "180.00",
       "quantity": "750 ml"
     },
     {
       "id": 38,
       "category": "Champagne & Wine",
       "name": "Nicolas Feuillatte Collection Vintage 2015 Brut Champagne |France|",
-      "price": "180.00 €/65.52 BGN",
+      "price": "180.00",
       "quantity": "750 ml"
     },
     {
       "id": 39,
       "category": "Champagne & Wine",
       "name": "Piper-Heidsieck Cuvée Brut Champagne |France|",
-      "price": "130.00 €/65.52 BGN",
+      "price": "130.00",
       "quantity": "750 ml"
     },
     {
@@ -291,42 +291,42 @@
       "category": "Champagne & Wine",
       "semi-category": "Sparkling Wine",
       "name": "Andreola, NO SUGAR, Valdobbiadene Prosecco 26 Primo |Italy|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "750 ml"
     },
     {
       "id": 41,
       "category": "Champagne & Wine",
       "name": "Bottegga, Prosecco Brut |Italy|",
-      "price": "5.50 €/10.76 BGN",
+      "price": "0",
       "quantity": "750 ml"
     },
     {
       "id": 42,
       "category": "Champagne & Wine",
       "name": "Bottegga, Prosecco Gold |Italy|",
-      "price": "5.50 €/10.76 BGN",
+      "price": "0",
       "quantity": "750 ml"
     },
     {
       "id": 43,
       "category": "Champagne & Wine",
       "name": "Bottegga, Prosecco Gold Rose |Italy|",
-      "price": "5.50 €/10.76 BGN",
+      "price": "0",
       "quantity": "750 ml"
     },
     {
       "id": 44,
       "category": "Champagne & Wine",
       "name": "Antica Frata, Franciacorta Brut Cuvée Real |Italy|",
-      "price": "5.50 €/10.76 BGN",
+      "price": "0",
       "quantity": "750 ml"
     },
     {
       "id": 45,
       "category": "Champagne & Wine",
       "name": "Sumarroca, Brut Rose Cava |Spain|",
-      "price": "33.50 €/65.52 BGN",
+      "price": "0",
       "quantity": "750 ml"
     },
     {
@@ -334,92 +334,92 @@
       "category": "Champagne & Wine",
       "semi-category": "White Wine",
       "name": "Pascal Jolivet, Sancerre, Sauvignon Blanc |France|",
-      "price": "80.00 €/110.50 BGN",
+      "price": "80.00",
       "quantity": "750 ml"
     },
     {
       "id": 47,
       "category": "Champagne & Wine",
       "name": "Pascal Jolivet, Sancerre Sauvage, Sauvignon Blanc |France|",
-      "price": "150.00 €/19.56 BGN",
+      "price": "150.00",
       "quantity": "750 ml"
     },
     {
       "id": 48,
       "category": "Champagne & Wine",
       "name": "Albert Bichot, Bourgogne, Chardonnay |France|",
-      "price": "60.00 €/65.52 BGN",
+      "price": "60.00",
       "quantity": "750 ml"
     },
     {
       "id": 49,
       "category": "Champagne & Wine",
       "name": "Laroche, Chablis, Chardonnay |France|",
-      "price": "60.00 €/65.52 BGN",
+      "price": "60.00",
       "quantity": "750 ml"
     },
     {
       "id": 50,
       "category": "Champagne & Wine",
       "name": "Ca Bolani, Pinot Grigio |Italy|",
-      "price": "50.00 €/65.52 BGN",
+      "price": "50.00",
       "quantity": "750 ml"
     },
     {
       "id": 51,
       "category": "Champagne & Wine",
       "name": "Cantina Cormons, Sauvignon Blanc Fruili |Italy|",
-      "price": "50.00 €/110.50 BGN",
+      "price": "50.00",
       "quantity": "750 ml"
     },
     {
       "id": 52,
       "category": "Champagne & Wine",
       "name": "La Scolca, Etichetta Nera GOLD, Gavi dei Gavi |Italy|",
-      "price": "110.00 €/75.30 BGN",
+      "price": "110.00",
       "quantity": "750 ml"
     },
     {
       "id": 53,
       "category": "Champagne & Wine",
       "name": "Antinori, Vermentino |Italy|",
-      "price": "60.00 €/190.69 BGN",
+      "price": "60.00",
       "quantity": "750 ml"
     },
     {
       "id": 54,
       "category": "Champagne & Wine",
       "name": "Misty Cove, Sauvignon Blanc |New Zealand|",
-      "price": "50.00 €/190.69 BGN",
+      "price": "50.00",
       "quantity": "750 ml"
     },
     {
       "id": 55,
       "category": "Champagne & Wine",
-      "semi-category": "Rose",
+      "semi-category": "Rosé",
       "name": "Château d'Esclans, Rock Angel Rosé, Grenache & Rolle |France|",
-      "price": "90.00 €/110.50 BGN",
+      "price": "90.00",
       "quantity": "750 ml"
     },
     {
       "id": 56,
       "category": "Champagne & Wine",
       "name": "Château d'Esclans, Whispering Angel Rosé, Grenache & Rolle & Cinsault & Syrah |France|",
-      "price": "60.00 €/110.50 BGN",
+      "price": "60.00",
       "quantity": "750 ml"
     },
     {
       "id": 57,
       "category": "Champagne & Wine",
       "name": "Château Miraval, Miraval Rose, Cincault & Grenache & Rolle |France|",
-      "price": "60.00 €/110.50 BGN",
+      "price": "60.00",
       "quantity": "750 ml"
     },
     {
       "id": 58,
       "category": "Champagne & Wine",
       "name": "Chateau Beaulieu, Cuvee Alexandre Rosé, Grenache & Cinsault & Syrah |France|",
-      "price": "50.00 €/110.50 BGN",
+      "price": "50.00",
       "quantity": "750 ml"
     },
     {
@@ -427,14 +427,14 @@
       "category": "Champagne & Wine",
       "semi-category": "Red Wine",
       "name": "Albert Bichot, Bourgogne, Pinot Noir |France|",
-      "price": "60.00 €/110.50 BGN",
+      "price": "60.00",
       "quantity": "750 ml"
     },
     {
       "id": 60,
       "category": "Champagne & Wine",
       "name": "Produttori di Manduria, Lirica, Primitivo |Italy|",
-      "price": "50.00 €/110.50 BGN",
+      "price": "50.00",
       "quantity": "750 ml"
     },
     {
@@ -442,105 +442,105 @@
       "category": "Champagne & Wine",
       "semi-category": "Small Bottles",
       "name": "Nicolas Feuillatte, Champagne Exclusive Brut |France|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "200 ml"
     },
     {
       "id": 62,
       "category": "Champagne & Wine",
       "name": "Nicolas Feuillatte, Champagne Exclusive Brut |France|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 63,
       "category": "Champagne & Wine",
       "name": "Bottegga, Prosecco Brut |Italy|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 64,
       "category": "Champagne & Wine",
       "name": "Andreola Valdobbiadene Prosecco Dirupo |Italy|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 65,
       "category": "Champagne & Wine",
       "name": "Cantina Cormons, Sauvignon Blanc Fruili |Italy|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 66,
       "category": "Champagne & Wine",
       "name": "La Scolca, Etichetta Bianca, Gavi dei Gavi |Italy|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 67,
       "category": "Champagne & Wine",
       "name": "Château d'Esclans, ROSE Whispering Angel |France|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 68,
       "category": "Champagne & Wine",
       "name": "LYV, Rose |France|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 69,
       "category": "Champagne & Wine",
       "name": "Produttori di Manduria, Lirica, Primitivo |Italy|",
-      "price": "56.50 €/110.50 BGN",
+      "price": "0",
       "quantity": "375 ml"
     },
     {
       "id": 70,
       "category": "Beer",
       "name": "Corona Extra",
-      "price": "7.00 €/8.80 BGN",
+      "price": "7.00",
       "quantity": "330 ml"
     },
     {
       "id": 71,
       "category": "Beer",
       "name": "Carlsberg",
-      "price": "5.00 €/8.80 BGN",
+      "price": "5.00",
       "quantity": "330 ml"
     },
     {
       "id": 72,
       "category": "Beer",
       "name": "Carlsberg 0.0",
-      "price": "5.00 €/8.80 BGN",
+      "price": "5.00",
       "quantity": "330 ml"
     },
     {
       "id": 73,
       "category": "Beer",
       "name": "Tuborg",
-      "price": "5.00 €/8.80 BGN",
+      "price": "5.00",
       "quantity": "330 ml"
     },
     {
       "id": 74,
       "category": "Beer",
       "name": "Budweiser",
-      "price": "5.00 €/8.80 BGN",
+      "price": "5.00",
       "quantity": "330 ml"
     },
     {
       "id": 75,
       "category": "Beer",
       "name": "Somersby",
-      "price": "5.00 €/8.80 BGN",
+      "price": "5.00",
       "quantity": "330 ml"
     },
     {
@@ -548,56 +548,56 @@
       "category": "Alcohol",
       "semi-category": "Vodka",
       "name": "Grey Goose Magnum",
-      "price": "280.00 €/11.73 BGN",
+      "price": "280.00",
       "quantity": "1.5 l"
     },
     {
       "id": 77,
       "category": "Alcohol",
       "name": "Grey Goose",
-      "price": "9.50 €/9.78 BGN",
+      "price": "9.50",
       "quantity": "50 ml"
     },
     {
       "id": 78,
       "category": "Alcohol",
       "name": "Grey Goose Altius",
-      "price": "29.00 €/9.78 BGN",
+      "price": "29.00",
       "quantity": "50 ml"
     },
     {
       "id": 79,
       "category": "Alcohol",
       "name": "Beluga",
-      "price": "9.50 €/18.58 BGN",
+      "price": "9.50",
       "quantity": "50 ml"
     },
     {
       "id": 80,
       "category": "Alcohol",
       "name": "Beluga Transatlantic",
-      "price": "20.50 €/18.58 BGN",
+      "price": "20.50",
       "quantity": "50 ml"
     },
     {
       "id": 81,
       "category": "Alcohol",
       "name": "Reyka",
-      "price": "6.00 €/18.58 BGN",
+      "price": "6.00",
       "quantity": "50 ml"
     },
     {
       "id": 82,
       "category": "Alcohol",
       "name": "Finlandia",
-      "price": "5.00 €/18.58 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
       "id": 83,
       "category": "Alcohol",
       "name": "Koskenkorva",
-      "price": "5.00 €/18.58 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
@@ -605,42 +605,42 @@
       "category": "Alcohol",
       "semi-category": "Tequila",
       "name": "Patrón El Alto Plata",
-      "price": "500.00 €/6.85 BGN",
+      "price": "500.00",
       "quantity": "700 ml"
     },
     {
       "id": 85,
       "category": "Alcohol",
       "name": "Patrón El Cielo",
-      "price": "500.00 €/5.87 BGN",
+      "price": "500.00",
       "quantity": "700 ml"
     },
     {
       "id": 86,
       "category": "Alcohol",
       "name": "Patrón Silver",
-      "price": "3.80 €/851.76 BGN",
+      "price": "3.80",
       "quantity": "25 ml"
     },
     {
       "id": 87,
       "category": "Alcohol",
       "name": "Patrón Reposado",
-      "price": "3.80 €/851.76 BGN",
+      "price": "3.80",
       "quantity": "25 ml"
     },
     {
       "id": 88,
       "category": "Alcohol",
       "name": "Milagro Silver",
-      "price": "3.80 €/851.76 BGN",
+      "price": "3.80",
       "quantity": "25 ml"
     },
     {
       "id": 89,
       "category": "Alcohol",
       "name": "Milagro Reposado",
-      "price": "3.80 €/851.76 BGN",
+      "price": "3.80",
       "quantity": "25 ml"
     },
     {
@@ -648,154 +648,154 @@
       "category": "Alcohol",
       "semi-category": "Whiskey",
       "name": "The Macallan 12 Years Old Single Malt Scotch",
-      "price": "14.50 €/14.67 BGN",
+      "price": "14.50",
       "quantity": "50 ml"
     },
     {
       "id": 91,
       "category": "Alcohol",
       "name": "The Balvenie 12 Years Old DoubleWood Single Malt Scotch",
-      "price": "15.00 €/9.78 BGN",
+      "price": "15.00",
       "quantity": "50 ml"
     },
     {
       "id": 92,
       "category": "Alcohol",
       "name": "GlenDronach 12 Years Old Single Malt Scotch",
-      "price": "14.50 €/12.71 BGN",
+      "price": "14.50",
       "quantity": "50 ml"
     },
     {
       "id": 93,
       "category": "Alcohol",
       "name": "Glenfiddich 18 Years Old Single Malt Scotch",
-      "price": "20.00 €/9.78 BGN",
+      "price": "20.00",
       "quantity": "50 ml"
     },
     {
       "id": 94,
       "category": "Alcohol",
       "name": "Glenfiddich 15 Years Old Single Malt Scotch",
-      "price": "13.00 €/9.78 BGN",
+      "price": "13.00",
       "quantity": "50 ml"
     },
     {
       "id": 95,
       "category": "Alcohol",
       "name": "Glenfiddich 12 Years Old Single Malt Scotch",
-      "price": "9.50 €/9.78 BGN",
+      "price": "9.50",
       "quantity": "50 ml"
     },
     {
       "id": 96,
       "category": "Alcohol",
       "name": "Benriach 10 Years Old Single Malt Scotch",
-      "price": "9.50 €/9.78 BGN",
+      "price": "9.50",
       "quantity": "50 ml"
     },
     {
       "id": 97,
       "category": "Alcohol",
       "name": "Monkey Shoulder Blended Malt Scotch",
-      "price": "7.50 €/14.67 BGN",
+      "price": "7.50",
       "quantity": "50 ml"
     },
     {
       "id": 98,
       "category": "Alcohol",
       "name": "Monkey Shoulder Smokey Monkey Blended Malt Scotch",
-      "price": "8.00 €/9.78 BGN",
+      "price": "8.00",
       "quantity": "50 ml"
     },
     {
       "id": 99,
       "category": "Alcohol",
       "name": "Grant’s 12 Years Old Blended Scotch",
-      "price": "7.00 €/11.73 BGN",
+      "price": "7.00",
       "quantity": "50 ml"
     },
     {
       "id": 100,
       "category": "Alcohol",
       "name": "Dewar’s 12 Years Old Blended Scotch",
-      "price": "7.00 €/14.67 BGN",
+      "price": "7.00",
       "quantity": "50 ml"
     },
     {
       "id": 101,
       "category": "Alcohol",
       "name": "Grant’s 8 Years Old Blended Scotch",
-      "price": "5.00 €/14.67 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
       "id": 102,
       "category": "Alcohol",
       "name": "Dewar’s Blended Scotch",
-      "price": "5.00 €/18.58 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
       "id": 103,
       "category": "Alcohol",
       "name": "Proper No. Twelve",
-      "price": "5.00 €/24.45 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
       "id": 104,
       "category": "Alcohol",
       "name": "Tullamore D.E.W.",
-      "price": "5.00 €/31.29 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
       "id": 105,
       "category": "Alcohol",
       "name": "Tullamore D.E.W. 12Y.O.",
-      "price": "7.50 €/31.29 BGN",
+      "price": "7.50",
       "quantity": "50 ml"
     },
     {
       "id": 106,
       "category": "Alcohol",
       "name": "Teeling",
-      "price": "6.00 €/27.38 BGN",
+      "price": "6.00",
       "quantity": "50 ml"
     },
     {
       "id": 107,
       "category": "Alcohol",
       "name": "Jack Daniel’s",
-      "price": "6.50 €/19.56 BGN",
+      "price": "6.50",
       "quantity": "50 ml"
     },
     {
       "id": 108,
       "category": "Alcohol",
       "name": "Gentleman Jack",
-      "price": "7.50 €/15.65 BGN",
+      "price": "7.50",
       "quantity": "50 ml"
     },
     {
       "id": 109,
       "category": "Alcohol",
       "name": "Jack Daniel’s Single Barrel",
-      "price": "8.50 €/15.65 BGN",
+      "price": "8.50",
       "quantity": "50 ml"
     },
     {
       "id": 110,
       "category": "Alcohol",
       "name": "Wild Turkey",
-      "price": "6.00 €/15.65 BGN",
+      "price": "6.00",
       "quantity": "50 ml"
     },
     {
       "id": 111,
       "category": "Alcohol",
       "name": "Woodford Reserve",
-      "price": "7.50 €/15.65 BGN",
+      "price": "7.50",
       "quantity": "50 ml"
     },
     {
@@ -803,21 +803,21 @@
       "category": "Alcohol",
       "semi-category": "Rum",
       "name": "Diplomático Reserva Exclusiva",
-      "price": "11.00 €/9.78 BGN",
+      "price": "11.00",
       "quantity": "50 ml"
     },
     {
       "id": 113,
       "category": "Alcohol",
       "name": "Sailor Jerry Spiced",
-      "price": "5.00 €/9.78 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
       "id": 114,
       "category": "Alcohol",
       "name": "Bacardi Carta Blanca",
-      "price": "5.00 €/21.51 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
@@ -825,35 +825,35 @@
       "category": "Alcohol",
       "semi-category": "Gin",
       "name": "Hendrick’s",
-      "price": "8.00 €/9.78 BGN",
+      "price": "8.00",
       "quantity": "50 ml"
     },
     {
       "id": 116,
       "category": "Alcohol",
       "name": "Gin Mare Mediterranean",
-      "price": "8.00 €/15.65 BGN",
+      "price": "8.00",
       "quantity": "50 ml"
     },
     {
       "id": 117,
       "category": "Alcohol",
       "name": "Bombay Sapphire London Dry",
-      "price": "5.50 €/10.76 BGN",
+      "price": "5.50",
       "quantity": "50 ml"
     },
     {
       "id": 118,
       "category": "Alcohol",
       "name": "Finsbury London Dry",
-      "price": "5.00 €/13.69 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
       "id": 119,
       "category": "Alcohol",
       "name": "Finsbury Strawberry",
-      "price": "5.00 €/13.69 BGN",
+      "price": "5.00",
       "quantity": "50 ml"
     },
     {
@@ -861,28 +861,28 @@
       "category": "Alcohol",
       "semi-category": "Liqueurs",
       "name": "Patrón XO Café Coffee Liqueur",
-      "price": "4.50 €/12.71 BGN",
+      "price": "4.50",
       "quantity": "25 ml"
     },
     {
       "id": 121,
       "category": "Alcohol",
       "name": "Jägermeister",
-      "price": "2.90 €/5.87 BGN",
+      "price": "2.90",
       "quantity": "25 ml"
     },
     {
       "id": 122,
       "category": "Alcohol",
       "name": "Skinos Mastiha Spirit",
-      "price": "2.80 €/5.87 BGN",
+      "price": "2.80",
       "quantity": "25 ml"
     },
     {
       "id": 123,
       "category": "Alcohol",
       "name": "Aftershok",
-      "price": "2.80 €/5.87 BGN",
+      "price": "2.80",
       "quantity": "25 ml"
     }
   ]
